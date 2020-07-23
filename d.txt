@@ -1,0 +1,30 @@
+pd:done 
+pwl
+plw
+w=p l
+p w=l
+
+wpd: done
+wpl 
+
+pdw:
+wpl with minus
+
+wd:
+wlp
+wp=l
+
+dw:
+wlp 
+wp=l
+
+d:done
+lwp
+lpw
+w=lp
+w=p=l
+p=lw
+lw=p
+
+
+

@@ -1,0 +1,39 @@
+
+**********without equal, with space*********
+
+pwl . 000001234567.
+plw . 000001234567.
+wpl .  01234567.
+wlp .   1234567.
+lwp . 1234567.
+lpw . 1234567.
+
+**********without equal, with minus, , with space*********
+
+pwl . 000001234567.
+plw . 000001234567.
+wpl . 01234567 .
+wlp . 1234567  .
+lwp . 1234567.
+lpw . 1234567.
+
+**********with equal, without minus, with space************
+
+w=p l . 01234567.
+w=l p . 1234567.
+w=p=l . 1234567.
+w p=l . 1234567.
+p=l w . 1234567.
+p w=l . 01234567.
+l w=p . 1234567.
+
+
+**********with equal, with minus, with space************
+
+w=p l . 01234567.
+w=l p . 1234567.
+w=p=l . 1234567.
+w p=l . 1234567.
+p=l w . 1234567.
+p w=l . 01234567.
+l w=p . 1234567.

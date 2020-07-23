@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/fford/Desktop/yPrintf4/includes/ft_printf.h
+stdarg.h
+-
+stdio.h
+-
+unistd.h
+-
+stdlib.h
+-
+
+/Users/fford/Desktop/yPrintf4/spec_u.c
+includes/ft_printf.h
+/Users/fford/Desktop/yPrintf4/includes/ft_printf.h
+
