@@ -88,12 +88,13 @@ int uwd_and_dw(t_spec *spec, t_flag *flag)//done
 
 	if (((w > l && l > p) || (w > p && p == l)))
 	{
-		flag->width -= l;
-		if (!flag->minus)//wd
+		if (flag->num || (!flag->dot && !flag->num))
+			flag->width -= l;
+		if (!flag->minus)
 			print_width(spec, flag);
-		if (flag->num ||  !flag->precision)
+		if (flag->num || !flag->dot)
 			ft_print_num(spec, flag->num, 10, 97);
-		if (flag->minus)//dw
+		if (flag->minus)
 			print_width(spec, flag);
 		return (1);
 	}
@@ -114,7 +115,8 @@ int ud(t_spec *spec, t_flag *flag)//done
 	if ((l > w && w > p) || (l > p && p > w) || (w == l && l > p) || \
 		(w == l && l == p) || (p == l && l > w) || (l > w && w == p))
 	{
-		ft_print_num(spec, flag->num, 10, 97);
+		if (flag->num || (!flag->dot && !flag->num))
+			ft_print_num(spec, flag->num, 10, 97);
 		return (1);
 	}
 	return (0);
