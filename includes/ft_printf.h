@@ -67,10 +67,10 @@ int			print_d(t_spec *spec, t_flag *flag);
 int			print_u(t_spec *spec, t_flag *flag);
 int			print_o(t_spec *spec, t_flag *flag);
 int			print_percent(t_spec *spec, t_flag *flag);
-/* int			print_d(t_spec *spec);
+/*
 int			print_e(t_spec *spec);
-int			print_g(t_spec *spec);
-int			print_p(t_spec *spec); */
+int			print_g(t_spec *spec); */
+void		print_p(t_spec *spec, t_flag *flag);
 int			print_x(t_spec *spec, t_flag *flag);
 //int			print_f(t_spec *spec);
 size_t		ft_strlen(const char *s);
