@@ -21,21 +21,18 @@ static int	def_types(t_spec *spec, t_flag *flag)
 		print_c(spec, flag);
 	if (spec->format[spec->i] == 'q')
 		print_q(spec, flag);
-	/* if (spec->format[spec->i] == 'p')
-		print_p(spec); */
+	if (spec->format[spec->i] == 'p')
+		print_p(spec, flag);
 	if (spec->format[spec->i] == 'd' ||	spec->format[spec->i] == 'i')
 		print_d(spec, flag);
 	if (spec->format[spec->i] == 'u')
 		print_u(spec, flag);
-	if (spec->format[spec->i] == 'o' || spec->format[spec->i] == 'O')
+	if (spec->format[spec->i] == 'o')
 		print_o(spec, flag);
 
 	if (spec->format[spec->i] == 'x' ||	spec->format[spec->i] == 'X')
 		print_x(spec, flag);
-	/* if (spec->format[spec->i] == 'X')
-		print_lx(spec); */
-	/* if (spec->format[spec->i] == 'C')
-		print_lc(spec); */
+
 	/* if (spec->format[spec->i] == 'f' || spec->format[spec->i] == 'F')
 		print_f(spec); */
 	if (spec->format[spec->i] == '%')

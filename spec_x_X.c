@@ -34,7 +34,7 @@ void xmake_4thflag(t_spec *spec, t_flag *flag)
 	flag->len = ft_len_number(flag->num, 16);
 }
 
-int xpd(t_spec *spec, t_flag *flag) // norm
+void	xpd(t_spec *spec, t_flag *flag) // norm
 {
 	int p;
 	int w;
@@ -67,12 +67,10 @@ int xpd(t_spec *spec, t_flag *flag) // norm
 			if (flag->num || !flag->precision)
 				ft_print_num(spec, flag->num, 16, 65);
 		}
-		return (1);
 	}
-	return (0);
 }
 
-int xwpd_and_pdw(t_spec *spec, t_flag *flag) // norm
+void	xwpd_and_pdw(t_spec *spec, t_flag *flag) // norm
 {
 	if (flag->width > flag->precision && flag->precision > flag->len)
 	{
@@ -104,12 +102,10 @@ int xwpd_and_pdw(t_spec *spec, t_flag *flag) // norm
 		}
 		if (flag->minus)
 			print_width(spec, flag);
-		return (1);
 	}
-	return (0);
 }
 
-int xwd_and_dw(t_spec *spec, t_flag *flag) // norm
+void	xwd_and_dw(t_spec *spec, t_flag *flag) // norm
 {
 	int p;
 	int w;
@@ -147,12 +143,10 @@ int xwd_and_dw(t_spec *spec, t_flag *flag) // norm
 		}
 		if (flag->minus)
 			print_width(spec, flag);
-		return (1);
 	}
-	return (0);
 }
 
-int xd(t_spec *spec, t_flag *flag) // norm
+void	xd(t_spec *spec, t_flag *flag) // norm
 {
 	int p;
 	int w;
@@ -180,12 +174,10 @@ int xd(t_spec *spec, t_flag *flag) // norm
 			if (flag->num || !flag->dot)
 				ft_print_num(spec, flag->num, 16, 65);
 		}
-		return (1);
 	}
-	return (0);
 }
 
-int			print_x(t_spec *spec, t_flag *flag)
+void	print_x(t_spec *spec, t_flag *flag)
 {
 	xmake_4thflag(spec, flag);
 	if (flag->minus)
@@ -194,13 +186,8 @@ int			print_x(t_spec *spec, t_flag *flag)
 		flag->zero = 0;
 	if (flag->num == 0 && !flag->dot)
 		flag->hash = 0;
-	if (xpd(spec, flag))
-		return (1);
-	else if (xd(spec, flag))
-		return (1);
-	else if (xwd_and_dw(spec, flag))
-		return (1);
-	else if (xwpd_and_pdw(spec, flag))
-		return (1);
-	return (0);
+	xpd(spec, flag);
+	xd(spec, flag);
+	xwd_and_dw(spec, flag);
+	xwpd_and_pdw(spec, flag);
 }
