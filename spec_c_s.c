@@ -12,7 +12,7 @@
 
 #include "includes/ft_printf.h"
 
-void print_width(t_spec *spec, t_flag *flag)
+void	print_width(t_spec *spec, t_flag *flag)
 {
 	while (flag->width--)
 	{
@@ -23,7 +23,7 @@ void print_width(t_spec *spec, t_flag *flag)
 	}
 }
 
-int			print_s(t_spec *spec, t_flag *flag)
+int		print_s(t_spec *spec, t_flag *flag)
 {
 	char	*str;
 	char	*out;
@@ -50,10 +50,10 @@ int			print_s(t_spec *spec, t_flag *flag)
 	if (!flag->minus)
 		write(1, out, len);
 	free(out);
-	return(0);
+	return (0);
 }
 
-static void	print_lc(char c)
+void	print_lc(char c)
 {
 	c = (wchar_t)c;
 	write(1, &c, 1);
@@ -71,7 +71,7 @@ int		print_c(t_spec *spec, t_flag *flag)
 		if (flag->l)
 			print_lc(c);
 		else
-			ft_putchar_bytes(c, spec);	
+			ft_putchar_bytes(c, spec);
 	}
 	print_width(spec, flag);
 	if (!flag->minus)

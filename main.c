@@ -116,10 +116,18 @@ int main(void)
 	printf("\n");
 	ft_printf("%.0u.", 0);
 */
-	printf("%5.0u.", 0);
+/*	printf("%5.0u.", 0);
 	printf("\n");
 	ft_printf("%5.0u.", 0);
+*/
+	int r00 = 0;
+	printf("%*.*d", 16, 6, -42);
+	printf("\n");
+	ft_printf("%*.*d", 16, 6, -42);
+	printf("\n");
 
+//	ft_printf("%p", &r00);
+//	ft_printf("Lalalala, %d%% des gens qui parlent à Ly adorent %s. Ou Presque. %p", 100, "Ly", &r00);
     /* ft_printf("pwl .%-10.15d.\n", 1234567);//pwl
 	printf("pwl .%-10.15d.\n", 1234567); */
 

@@ -6,7 +6,7 @@
 /*   By: fford <fford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 18:23:11 by fford             #+#    #+#             */
-/*   Updated: 2020/07/26 19:29:25 by fford            ###   ########.fr       */
+/*   Updated: 2020/07/25 19:29:25 by fford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,21 @@ void	keep_arg(t_spec *spec, t_flag *flag)
 	flag->num = num;
 	flag->len = ft_len_number(flag->num, 16);
 	flag->width -= 2;
+}
+
+int		ltw(t_spec *spec, t_flag *flag)
+{
+	int w;
+	int l;
+
+	l = flag->len;
+	w = flag->width;
+	if ((l > w) || (w == l))
+	{
+		ft_putstr_bytes("0x", spec);
+		ft_print_num(spec, flag->num, 16, 97);
+	}
+	return (0);
 }
 
 int		wtl(t_spec *spec, t_flag *flag)
@@ -40,21 +55,6 @@ int		wtl(t_spec *spec, t_flag *flag)
 	return (0);
 }
 
-int		ltw(t_spec *spec, t_flag *flag)
-{
-	int w;
-	int l;
-
-	l = flag->len;
-	w = flag->width;
-	if ((l > w) || (w == l))
-	{
-		ft_putstr_bytes("0x", spec);
-		ft_print_num(spec, flag->num, 16, 97);
-	}
-	return (0);
-}
-
 void	print_p(t_spec *spec, t_flag *flag)
 {
 	keep_arg(spec, flag);
@@ -62,5 +62,4 @@ void	print_p(t_spec *spec, t_flag *flag)
 		flag->zero = 0;
 	ltw(spec, flag);
 	wtl(spec, flag);
-
 }

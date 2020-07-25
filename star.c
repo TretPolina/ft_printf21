@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   star.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ljerk <ljerk@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/27 23:22:24 by ljerk             #+#    #+#             */
+/*   Updated: 2020/03/06 18:35:17 by ljerk            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "includes/ft_printf.h"
 
-void parse_star(t_spec *spec, t_flag *flag)
+void	parse_star(t_spec *spec, t_flag *flag)
 {
 	int val;
 
-	if (spec->format[spec->i] == '*' && spec->i + 1)
+	if (spec->format[spec->i] == '*' && ++spec->i)
 	{
 		flag->star = 1;
 		if ((val = (int)va_arg(spec->ap, int)))
@@ -23,15 +35,13 @@ void parse_star(t_spec *spec, t_flag *flag)
 				else
 					flag->width = val;
 			}
-
 		}
 		else
-			flag->zero = 1;//у Леши
-		spec->i++;
+			flag->zero = 1;
 	}
 }
 
-void parse_number(t_spec *spec, t_flag *flag, int *res)
+void	parse_number(t_spec *spec, t_flag *flag, int *res)
 {
 	if (spec->format[spec->i] <= '9' && spec->format[spec->i] >= '0' &&
 		(!*res || flag->star))

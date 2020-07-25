@@ -14,63 +14,62 @@
 
 void	init_flag(t_flag *flag)
 {
-    flag->plus = 0;
-    flag->minus = 0;
+	flag->plus = 0;
+	flag->minus = 0;
 	flag->hash = 0;
-    flag->space = 0;
-    flag->zero = 0;
-    flag->width = 0;
+	flag->space = 0;
+	flag->zero = 0;
+	flag->width = 0;
 	flag->dot = 0;
-    flag->precision = 0;
-    flag->l = 0;
-    flag->ll = 0;
-    flag->h = 0;
-    flag->hh = 0;
-    flag->L = 0;
-    flag->type = 0;
-    flag->star = 0;
-    flag->sign = 0;
-    flag->num = 0;
+	flag->precision = 0;
+	flag->l = 0;
+	flag->ll = 0;
+	flag->h = 0;
+	flag->hh = 0;
+	flag->L = 0;
+	flag->type = 0;
+	flag->star = 0;
+	flag->sign = 0;
+	flag->num = 0;
 }
 
-void    first_flag(t_spec *spec, t_flag *flag)
+void	first_flag(t_spec *spec, t_flag *flag)
 {
-    init_flag(flag);
-    while (spec->format[spec->i] == '+' || spec->format[spec->i] == '-' ||
-            spec->format[spec->i] == '#' ||spec->format[spec->i] == '0' ||
-            spec->format[spec->i] == ' ')
-    {
-        if (spec->format[spec->i] == '+')
-            flag->plus = 1;
-        if (spec->format[spec->i] == '-')
-            flag->minus = 1;
-        if (spec->format[spec->i] == '#')
-            flag->hash = 1;
-        if (spec->format[spec->i] == ' ')
-            flag->space = 1;
-        if (spec->format[spec->i] == '0')
-            flag->zero = 1;
-        spec->i++;
-    }
+	init_flag(flag);
+	while (spec->format[spec->i] == '+' || spec->format[spec->i] == '-' ||
+			spec->format[spec->i] == '#' || spec->format[spec->i] == '0' ||
+			spec->format[spec->i] == ' ')
+	{
+		if (spec->format[spec->i] == '+')
+			flag->plus = 1;
+		if (spec->format[spec->i] == '-')
+			flag->minus = 1;
+		if (spec->format[spec->i] == '#')
+			flag->hash = 1;
+		if (spec->format[spec->i] == ' ')
+			flag->space = 1;
+		if (spec->format[spec->i] == '0')
+			flag->zero = 1;
+		spec->i++;
+	}
 }
 
-void    second_flag(t_spec *spec, t_flag *flag)
+void	second_flag(t_spec *spec, t_flag *flag)
 {
-    parse_star(spec, flag);
-    parse_number(spec, flag, &flag->width);
+	parse_star(spec, flag);
+	parse_number(spec, flag, &flag->width);
 }
 
-void    third_flag(t_spec *spec, t_flag *flag)
+void	third_flag(t_spec *spec, t_flag *flag)
 {
-    if (spec->format[spec->i] == '.')
+	if (spec->format[spec->i] == '.')
 	{
 		flag->dot = 1;
 		spec->i++;
-        flag->precision = 0;
-        parse_star(spec, flag);
-        parse_number(spec, flag, &flag->precision);
+		flag->precision = 0;
+		parse_star(spec, flag);
+		parse_number(spec, flag, &flag->precision);
 	}
-    
 }
 
 void	fourth_flag(t_spec *spec, t_flag *flag)

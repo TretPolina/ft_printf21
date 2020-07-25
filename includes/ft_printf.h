@@ -83,13 +83,17 @@ void		parse_star(t_spec *spec, t_flag *flag);
 void		parse_number(t_spec *spec, t_flag *flag, int *res);
 /**************************/
 void 		make_4thflag(t_spec *spec, t_flag *flag);
+void		omake_4thflag(t_spec *spec, t_flag *flag);
+void		umake_4thflag(t_spec *spec, t_flag *flag);
 int			ft_len_number(unsigned long num, unsigned rang);
 void		ft_print_num(t_spec *spec, unsigned long n, unsigned rang, char c);
 void		print_width(t_spec *spec, t_flag *flag);
+void		print_sign(t_spec *spec, t_flag *flag);
 int 		pd(t_spec *spec, t_flag *flag);
 int 		wpd(t_spec *spec, t_flag *flag);
 
-void 		umake_4thflag(t_spec *spec, t_flag *flag);
-void 		omake_4thflag(t_spec *spec, t_flag *flag);
+int			xpd(t_spec *spec, t_flag *flag);
+int			xwpd_and_pdw(t_spec *spec, t_flag *flag);
+int			xwd_and_dw(t_spec *spec, t_flag *flag);
 
 #endif
