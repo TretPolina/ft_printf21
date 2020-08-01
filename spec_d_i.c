@@ -114,8 +114,8 @@ void	print_d(t_spec *spec, t_flag *flag)
 		flag->width--;
 	if (flag->precision > 0)
 		flag->zero = 0;
-	if(!pd(spec, flag))
-		if(!d(spec, flag))
-			if(!wd_and_dw(spec, flag))
+	if (!pd(spec, flag))
+		if (!d(spec, flag))
+			if (!wd_and_dw(spec, flag))
 				wpd_and_pdw(spec, flag);
 }

@@ -102,7 +102,7 @@ void	print_u(t_spec *spec, t_flag *flag)
 	if (flag->precision > 0)
 		flag->zero = 0;
 	if (!upd(spec, flag))
-		if(!ud(spec, flag))
-			if(!uwd_and_dw(spec, flag))
+		if (!ud(spec, flag))
+			if (!uwd_and_dw(spec, flag))
 				uwpd_and_pdw(spec, flag);
 }

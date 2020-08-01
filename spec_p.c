@@ -14,7 +14,7 @@
 
 void	keep_arg(t_spec *spec, t_flag *flag)
 {
-	unsigned long num;
+	unsigned long	num;
 
 	num = (unsigned long)va_arg(spec->ap, unsigned long);
 	flag->num = num;
@@ -24,8 +24,8 @@ void	keep_arg(t_spec *spec, t_flag *flag)
 
 int		ltw(t_spec *spec, t_flag *flag)
 {
-	int w;
-	int l;
+	int	w;
+	int	l;
 
 	l = flag->len;
 	w = flag->width;
@@ -59,9 +59,9 @@ int		wtl(t_spec *spec, t_flag *flag)
 
 void	print_p(t_spec *spec, t_flag *flag)
 {
-		keep_arg(spec, flag);
-		if (flag->minus)
-			flag->zero = 0;
-		if (!ltw(spec, flag))
-			wtl(spec, flag);
+	keep_arg(spec, flag);
+	if (flag->minus)
+		flag->zero = 0;
+	if (!ltw(spec, flag))
+		wtl(spec, flag);
 }

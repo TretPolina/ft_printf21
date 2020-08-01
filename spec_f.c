@@ -16,20 +16,6 @@ double	ft_power(double n, int pow)
 {
 	return (pow ? n * ft_power(n, pow - 1) : 1);
 }
-/*
-double	ft_power(double x, int y)
-{
-	double z;
-
-	z = x;
-	while (y > 1)
-	{
-		z = z * x;
-		y--;
-	}
-	return (z);
-}*/
-
 
 void	ft_put_decimal(t_spec *spec, t_flag *flag, long decimal)
 {

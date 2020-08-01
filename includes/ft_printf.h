@@ -14,9 +14,7 @@
 
 # define PRINTF_H
 # define FT_ABS(X) ((X) < 0 ? - (X) : (X))
-
 # include <stdarg.h>
-# include <stdio.h>//убрать потом
 # include <unistd.h>
 # include <stdlib.h>
 

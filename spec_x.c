@@ -58,8 +58,7 @@ void	print_x(t_spec *spec, t_flag *flag)
 	if (flag->num == 0 && !flag->dot)
 		flag->hash = 0;
 	if (!xpd(spec, flag))
-		if(!xd(spec, flag))
-			if(!xwd_and_dw(spec, flag))
+		if (!xd(spec, flag))
+			if (!xwd_and_dw(spec, flag))
 				xwpd_and_pdw(spec, flag);
-
 }
