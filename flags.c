@@ -26,8 +26,7 @@ void	init_flag(t_flag *flag)
 	flag->ll = 0;
 	flag->h = 0;
 	flag->hh = 0;
-	flag->L = 0;
-	flag->type = 0;
+	flag->bigl = 0;
 	flag->star = 0;
 	flag->sign = 0;
 	flag->num = 0;
@@ -76,7 +75,7 @@ void	fourth_flag(t_spec *spec, t_flag *flag)
 {
 	if (spec->format[spec->i] == 'L')
 	{
-		flag->L = 1;
+		flag->bigl = 1;
 		spec->i++;
 	}
 	else if (spec->format[spec->i] == 'h' && (spec->format[spec->i + 1] == 'h'))

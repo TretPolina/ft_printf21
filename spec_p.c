@@ -14,9 +14,9 @@
 
 void	keep_arg(t_spec *spec, t_flag *flag)
 {
-	long long int num;
+	unsigned long num;
 
-	num = (long long)va_arg(spec->ap, long long int);
+	num = (unsigned long)va_arg(spec->ap, unsigned long);
 	flag->num = num;
 	flag->len = ft_len_number(flag->num, 16);
 	flag->width -= 2;
@@ -32,7 +32,8 @@ int		ltw(t_spec *spec, t_flag *flag)
 	if ((l > w) || (w == l))
 	{
 		ft_putstr_bytes("0x", spec);
-		ft_print_num(spec, flag->num, 16, 97);
+		if (flag->num || !flag->dot)
+			ft_print_num(spec, flag->num, 16, 97);
 	}
 	return (0);
 }
@@ -47,7 +48,8 @@ int		wtl(t_spec *spec, t_flag *flag)
 		ft_putstr_bytes("0x", spec);
 		if (flag->zero)
 			print_width(spec, flag);
-		ft_print_num(spec, flag->num, 16, 97);
+		if (flag->num || !flag->dot)
+			ft_print_num(spec, flag->num, 16, 97);
 		if (flag->minus)
 			print_width(spec, flag);
 		return (1);
@@ -57,9 +59,9 @@ int		wtl(t_spec *spec, t_flag *flag)
 
 void	print_p(t_spec *spec, t_flag *flag)
 {
-	keep_arg(spec, flag);
-	if (flag->minus)
-		flag->zero = 0;
-	ltw(spec, flag);
-	wtl(spec, flag);
+		keep_arg(spec, flag);
+		if (flag->minus)
+			flag->zero = 0;
+		if (!ltw(spec, flag))
+			wtl(spec, flag);
 }

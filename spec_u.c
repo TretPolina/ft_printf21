@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   spec_u.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ljerk <ljerk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fford <fford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 18:23:11 by ljerk             #+#    #+#             */
-/*   Updated: 2020/03/05 17:42:29 by ljerk            ###   ########.fr       */
+/*   Created: 2020/03/03 18:23:11 by fford             #+#    #+#             */
+/*   Updated: 2020/03/05 17:42:29 by fford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,20 +94,15 @@ int		ud(t_spec *spec, t_flag *flag)
 	return (0);
 }
 
-int		print_u(t_spec *spec, t_flag *flag)
+void	print_u(t_spec *spec, t_flag *flag)
 {
 	umake_4thflag(spec, flag);
 	if (flag->minus)
 		flag->zero = 0;
 	if (flag->precision > 0)
 		flag->zero = 0;
-	if (upd(spec, flag))
-		return (1);
-	else if (ud(spec, flag))
-		return (1);
-	else if (uwd_and_dw(spec, flag))
-		return (1);
-	else if (uwpd_and_pdw(spec, flag))
-		return (1);
-	return (0);
+	if (!upd(spec, flag))
+		if(!ud(spec, flag))
+			if(!uwd_and_dw(spec, flag))
+				uwpd_and_pdw(spec, flag);
 }

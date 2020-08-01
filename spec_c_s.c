@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   spec_c.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ljerk <ljerk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fford <ljerk@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 18:23:11 by ljerk             #+#    #+#             */
-/*   Updated: 2020/03/05 19:29:25 by ljerk            ###   ########.fr       */
+/*   Created: 2020/03/03 18:23:11 by fford             #+#    #+#             */
+/*   Updated: 2020/03/05 19:29:25 by fford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_width(t_spec *spec, t_flag *flag)
 	}
 }
 
-int		print_s(t_spec *spec, t_flag *flag)
+void	print_s(t_spec *spec, t_flag *flag)
 {
 	char	*str;
 	char	*out;
@@ -50,7 +50,6 @@ int		print_s(t_spec *spec, t_flag *flag)
 	if (!flag->minus)
 		write(1, out, len);
 	free(out);
-	return (0);
 }
 
 void	print_lc(char c)
@@ -59,7 +58,7 @@ void	print_lc(char c)
 	write(1, &c, 1);
 }
 
-int		print_c(t_spec *spec, t_flag *flag)
+void	print_c(t_spec *spec, t_flag *flag)
 {
 	char	c;
 
@@ -76,5 +75,4 @@ int		print_c(t_spec *spec, t_flag *flag)
 	print_width(spec, flag);
 	if (!flag->minus)
 		ft_putchar_bytes(c, spec);
-	return (0);
 }

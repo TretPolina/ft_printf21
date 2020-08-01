@@ -73,6 +73,25 @@ void	umake_4thflag(t_spec *spec, t_flag *flag)
 	else if (flag->h)
 		num = (unsigned short)va_arg(spec->ap, unsigned int);
 	else if (flag->l)
+		num = (unsigned long int)va_arg(spec->ap, unsigned long int);
+	else if (flag->ll)
+		num = (unsigned long long)va_arg(spec->ap, unsigned long long int);
+	else
+		num = (unsigned int)va_arg(spec->ap, unsigned int);
+	flag->num = (unsigned long)num;
+	flag->len = ft_len_number(flag->num, 10);
+}
+
+void	xmake_4thflag(t_spec *spec, t_flag *flag)
+{
+	long long int num;
+
+	num = 0;
+	if (flag->hh)
+		num = (unsigned char)va_arg(spec->ap, unsigned int);
+	else if (flag->h)
+		num = (unsigned short)va_arg(spec->ap, unsigned int);
+	else if (flag->l)
 		num = (unsigned long)va_arg(spec->ap, unsigned long int);
 	else if (flag->ll)
 		num = (unsigned long long)va_arg(spec->ap, unsigned long long int);
@@ -82,5 +101,6 @@ void	umake_4thflag(t_spec *spec, t_flag *flag)
 		flag->num = (unsigned long)num * -1;
 	else
 		flag->num = (unsigned long)num;
-	flag->len = ft_len_number(flag->num, 10);
+	flag->len = ft_len_number(flag->num, 16);
 }
+

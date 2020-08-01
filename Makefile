@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ljerk <ljerk@student.42.fr>                +#+  +:+       +#+         #
+#    By: fford <fford@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/02/25 16:08:43 by ljerk             #+#    #+#              #
-#    Updated: 2020/03/06 21:12:47 by ljerk            ###   ########.fr        #
+#    Created: 2020/02/25 16:08:43 by fford             #+#    #+#              #
+#    Updated: 2020/03/06 21:12:47 by fford            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ NAME = libftprintf.a
 
 .PHONY: all clean fclean re
 
-SRC =	ft_printf.c specificator.c flags.c\
-		spec_c_s.c spec_q.c spec_d.c spec_u.c spec_o.c spec_percent.c spec_x_X.c\
-		ft_atoi.c ft_itoa_base.c ft_putchar.c ft_strlen.c ft_strdup.c ft_putstr.c\
+SRC =	ft_printf.c specificator.c flags.c spec_x_check.c sub_func.c fourth_flag.c\
+		spec_c_s.c spec_d_i.c spec_u.c spec_o.c spec_percent.c spec_x.c spec_p.c spec_f.c\
+		ft_putchar.c ft_strlen.c ft_strdup.c ft_putstr.c\
 		star.c
 
 OBJ = $(SRC:.c=.o)

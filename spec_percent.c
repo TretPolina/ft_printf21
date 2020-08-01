@@ -12,7 +12,7 @@
 
 #include "includes/ft_printf.h"
 
-int		print_percent(t_spec *spec, t_flag *flag)
+void	print_percent(t_spec *spec, t_flag *flag)
 {
 	if (flag->width)
 		flag->width--;
@@ -33,5 +33,4 @@ int		print_percent(t_spec *spec, t_flag *flag)
 		}
 		ft_putchar_bytes('%', spec);
 	}
-	return (0);
 }

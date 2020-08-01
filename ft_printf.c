@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ljerk <ljerk@student.42.fr>                +#+  +:+       +#+        */
+/*   By: fford <fford@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/23 18:29:44 by ljerk             #+#    #+#             */
-/*   Updated: 2020/03/06 17:54:05 by ljerk            ###   ########.fr       */
+/*   Created: 2020/02/23 18:29:44 by fford             #+#    #+#             */
+/*   Updated: 2020/03/06 17:54:05 by fford            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ int		ft_printf(const char *format, ...)
 
 	va_start(spec.ap, format);
 	spec.format = ft_strdup(format);
-	if (!parse(&spec, &flag))
-		return (-1);
+	parse(&spec, &flag);
 	va_end(spec.ap);
 	free(spec.format);
 	return (spec.bytes);

@@ -12,28 +12,6 @@
 
 #include "includes/ft_printf.h"
 
-void	xmake_4thflag(t_spec *spec, t_flag *flag)
-{
-	long long int num;
-
-	num = 0;
-	if (flag->hh)
-		num = (unsigned char)va_arg(spec->ap, unsigned int);
-	else if (flag->h)
-		num = (unsigned short)va_arg(spec->ap, unsigned int);
-	else if (flag->l)
-		num = (unsigned long)va_arg(spec->ap, unsigned long int);
-	else if (flag->ll)
-		num = (unsigned long long)va_arg(spec->ap, unsigned long long int);
-	else
-		num = (unsigned int)va_arg(spec->ap, unsigned int);
-	if (num < 0 && ++flag->sign)
-		flag->num = (unsigned long)num * -1;
-	else
-		flag->num = (unsigned long)num;
-	flag->len = ft_len_number(flag->num, 16);
-}
-
 void	small_or_big(t_spec *spec, t_flag *flag)
 {
 	if (spec->format[spec->i] == 'x')
@@ -70,7 +48,7 @@ int		xd(t_spec *spec, t_flag *flag)
 	return (0);
 }
 
-int		print_x(t_spec *spec, t_flag *flag)
+void	print_x(t_spec *spec, t_flag *flag)
 {
 	xmake_4thflag(spec, flag);
 	if (flag->minus)
@@ -79,13 +57,9 @@ int		print_x(t_spec *spec, t_flag *flag)
 		flag->zero = 0;
 	if (flag->num == 0 && !flag->dot)
 		flag->hash = 0;
-	if (xpd(spec, flag))
-		return (1);
-	else if (xd(spec, flag))
-		return (1);
-	else if (xwd_and_dw(spec, flag))
-		return (1);
-	else if (xwpd_and_pdw(spec, flag))
-		return (1);
-	return (0);
+	if (!xpd(spec, flag))
+		if(!xd(spec, flag))
+			if(!xwd_and_dw(spec, flag))
+				xwpd_and_pdw(spec, flag);
+
 }
