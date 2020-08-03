@@ -22,9 +22,9 @@ void	make_4thflag(t_spec *spec, t_flag *flag)
 	else if (flag->h)
 		num = (short)va_arg(spec->ap, int);
 	else if (flag->l)
-		num = (long)va_arg(spec->ap, long int);
+		num = (unsigned long int)va_arg(spec->ap, unsigned long int);
 	else if (flag->ll)
-		num = (long long)va_arg(spec->ap, long long int);
+		num = (unsigned long long)va_arg(spec->ap, unsigned long long);
 	else
 		num = (int)va_arg(spec->ap, int);
 	if (num < 0 && ++flag->sign)
@@ -41,23 +41,19 @@ void	make_4thflag(t_spec *spec, t_flag *flag)
 
 void	omake_4thflag(t_spec *spec, t_flag *flag)
 {
-	long long int num;
+	unsigned long	num;
 
-	num = 0;
 	if (flag->hh)
 		num = (unsigned char)va_arg(spec->ap, unsigned int);
 	else if (flag->h)
 		num = (unsigned short)va_arg(spec->ap, unsigned int);
 	else if (flag->l)
-		num = (unsigned long)va_arg(spec->ap, unsigned long int);
+		num = (unsigned long int)va_arg(spec->ap, unsigned long int);
 	else if (flag->ll)
 		num = (unsigned long long)va_arg(spec->ap, unsigned long long int);
 	else
 		num = (unsigned int)va_arg(spec->ap, unsigned int);
-	if (num < 0 && ++flag->sign)
-		flag->num = (unsigned long)num * -1;
-	else
-		flag->num = (unsigned long)num;
+	flag->num = (unsigned long)num;
 	flag->len = ft_len_number(flag->num, 8);
 	if (flag->hash && flag->precision < 1)
 		flag->width--;
@@ -84,22 +80,18 @@ void	umake_4thflag(t_spec *spec, t_flag *flag)
 
 void	xmake_4thflag(t_spec *spec, t_flag *flag)
 {
-	long long int num;
+	unsigned long	num;
 
-	num = 0;
 	if (flag->hh)
 		num = (unsigned char)va_arg(spec->ap, unsigned int);
 	else if (flag->h)
 		num = (unsigned short)va_arg(spec->ap, unsigned int);
 	else if (flag->l)
-		num = (unsigned long)va_arg(spec->ap, unsigned long int);
+		num = (unsigned long int)va_arg(spec->ap, unsigned long int);
 	else if (flag->ll)
 		num = (unsigned long long)va_arg(spec->ap, unsigned long long int);
 	else
 		num = (unsigned int)va_arg(spec->ap, unsigned int);
-	if (num < 0 && ++flag->sign)
-		flag->num = (unsigned long)num * -1;
-	else
-		flag->num = (unsigned long)num;
+	flag->num = (unsigned long)num;
 	flag->len = ft_len_number(flag->num, 16);
 }
