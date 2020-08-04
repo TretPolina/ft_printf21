@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
+#ifndef FT_PRINTF_H
 
-# define PRINTF_H
+# define FT_PRINTF_H
 # define FT_ABS(X) ((X) < 0 ? - (X) : (X))
 # include <stdarg.h>
 # include <unistd.h>
@@ -63,6 +63,7 @@ void				print_percent(t_spec *spec, t_flag *flag);
 void				print_p(t_spec *spec, t_flag *flag);
 void				print_x(t_spec *spec, t_flag *flag);
 void				print_f(t_spec *spec, t_flag *flag);
+void				print_b(t_spec *spec, t_flag *flag);
 size_t				ft_strlen(const char *s);
 char				*ft_strdup(const char *src);
 int					ft_putchar_bytes(int c, t_spec *spec);
@@ -73,6 +74,7 @@ void				make_4thflag(t_spec *spec, t_flag *flag);
 void				omake_4thflag(t_spec *spec, t_flag *flag);
 void				umake_4thflag(t_spec *spec, t_flag *flag);
 void				xmake_4thflag(t_spec *spec, t_flag *flag);
+void				bmake_4thflag(t_spec *spec, t_flag *flag);
 int					ft_len_number(unsigned long num, unsigned rang);
 void				ft_print_num(t_spec *spec, unsigned long n,
 									unsigned rang, char c);

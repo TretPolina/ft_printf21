@@ -32,6 +32,8 @@ int	def_types(t_spec *spec, t_flag *flag)
 		print_f(spec, flag);
 	if (spec->format[spec->i] == '%')
 		print_percent(spec, flag);
+	if (spec->format[spec->i] == 'b')
+		print_b(spec, flag);
 	return (0);
 }
 
@@ -42,7 +44,7 @@ int	print_spec(t_spec *spec, t_flag *flag)
 		spec->format[spec->i] == 'i' || spec->format[spec->i] == 'o' ||
 		spec->format[spec->i] == 'u' || spec->format[spec->i] == 'f' ||
 		spec->format[spec->i] == 'x' || spec->format[spec->i] == 'X' ||
-		spec->format[spec->i] == '%' || spec->format[spec->i] == 'q')
+		spec->format[spec->i] == '%' || spec->format[spec->i] == 'b')
 	{
 		def_types(spec, flag);
 		spec->i++;

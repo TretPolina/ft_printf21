@@ -15,8 +15,8 @@
 
 int	main(void)
 {
-//	printf("%.5p", 0);
+//	printf("%b", 2);
 	printf("\n");
-	ft_printf("%.5p", 0);
+	ft_printf("%b", 2);
 	return (0);
 }

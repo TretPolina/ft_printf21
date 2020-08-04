@@ -95,3 +95,23 @@ void	xmake_4thflag(t_spec *spec, t_flag *flag)
 	flag->num = (unsigned long)num;
 	flag->len = ft_len_number(flag->num, 16);
 }
+
+void	bmake_4thflag(t_spec *spec, t_flag *flag)
+{
+	unsigned long	num;
+
+	if (flag->hh)
+		num = (unsigned char)va_arg(spec->ap, unsigned int);
+	else if (flag->h)
+		num = (unsigned short)va_arg(spec->ap, unsigned int);
+	else if (flag->l)
+		num = (unsigned long int)va_arg(spec->ap, unsigned long int);
+	else if (flag->ll)
+		num = (unsigned long long)va_arg(spec->ap, unsigned long long int);
+	else
+		num = (unsigned int)va_arg(spec->ap, unsigned int);
+	flag->num = (unsigned long)num;
+	flag->len = ft_len_number(flag->num, 2);
+	if (flag->hash && flag->precision < 1)
+		flag->width--;
+}
